@@ -5,15 +5,23 @@ import List from './components/list.js';
 import Note from './components/note.js';
 
 class App extends Component {
-render() {
-  return (
-    <div className="App">
-      <Nav />
-      <List />
-      <Note />
-    </div>
-  );
-}
+  constructor(){
+    super();
+    this.state = {
+      showNote: false
+    };
+  }
+
+  render() {
+    const { showNote } = this.state;
+
+    return (
+      <div className="App">
+        <Nav />
+        { showNote ? <Note /> : <List /> }
+      </div>
+    );
+  }
 }
 
 export default App;
