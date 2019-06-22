@@ -4,6 +4,7 @@ import Nav from './components/nav.js';
 import List from './components/list.js';
 import Note from './components/note.js';
 import axios from 'axios';
+import urlFor from './helpers/urlFor';
 
 class App extends Component {
   constructor(){
@@ -20,9 +21,9 @@ class App extends Component {
   }
 
   getNotes = () => {
-      axios.get('https://note-app-zoe-kramer.herokuapp.com/notes')
-      .then((res) => console.log(res.data) )
-      .catch((err) => console.log(err) )
+    axios.get(urlFor('notes'))
+    .then((res) => console.log(res.data) )
+    .catch((err) => console.log(err) );
   }
 
   render() {
