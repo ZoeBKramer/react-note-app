@@ -27,6 +27,10 @@ class App extends Component {
     .catch((err) => console.log(err) );
   }
 
+  getNote = () => {
+    console.log('Clicked!');
+  }
+
   render() {
     const { showNote, notes } = this.state; 
 
@@ -36,7 +40,10 @@ class App extends Component {
         {showNote ?
           <Note />
           :
-          <List getNotes={this.getNotes} notes={notes} />
+          <List 
+          getNotes={this.getNotes} 
+          notes={notes} 
+          getNote={this.getNote} />
         }
       </div>
     );
