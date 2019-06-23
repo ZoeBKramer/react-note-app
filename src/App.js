@@ -34,6 +34,10 @@ class App extends Component {
     .catch((err) => console.log(err) );
   }
 
+  submitNote = (data) => {
+    console.log('data');
+  }
+
   render() {
     const { showNote, notes, note } = this.state; 
 
@@ -42,7 +46,8 @@ class App extends Component {
         <Nav toggleNote={this.toggleNote} showNote={showNote} />
         {showNote ?
           <Note 
-          note={note} />
+          note={note}
+          submitNote={this.submitNote} />
           :
           <List 
           getNotes={this.getNotes} 
