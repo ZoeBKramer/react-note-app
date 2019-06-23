@@ -71,6 +71,12 @@ class App extends Component {
     .catch((err) => console.log(err) );
   }
 
+  deleteTag = (noteId, id) => {
+    axios.delete(urlFor(`/tags/${id}`))
+    .then((res) => this.getNote(noteId) )
+    .catch((err) => console.log(err) );
+  }
+
   render() {
     const { showNote, notes, note, newTag } = this.state; 
 
@@ -84,7 +90,8 @@ class App extends Component {
           showTagForm={this.showTagForm}
           newTag={newTag} 
           closeTagForm={this.closeTagForm}
-          submitTag={this.submitTag} />
+          submitTag={this.submitTag}
+          deleteTag={this.deleteTag} />
           :
           <List 
           getNotes={this.getNotes} 
